@@ -62,7 +62,6 @@ Logk_Pyr = np.array(df['Logk_Pyr'])
 Logk_Hem = np.array(df['Logk_Hem'])
 Logk_Goe = np.array(df['Logk_Goe'])
 
-
 #===========================
 # Writing to the input files
 #===========================

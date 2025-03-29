@@ -5,8 +5,8 @@ import seaborn as sns
 
 # Define the main directory and subdirectories
 # main_dir = 'Sw'
-# main_dir = 'Wt'
-main_dir = 'Temperature'
+main_dir = 'Wt'
+# main_dir = 'Temperature'
 subdirs = ['1Y_Data', '3Y_Data', '5Y_Data', '10Y_Data']
 times = ['1Y', '3Y', '5Y', '10Y']
 
@@ -40,11 +40,11 @@ def collect_data():
         path = os.path.join(main_dir, subdir)
         for molecule in molecule_names:
             # for i in [10, 20, 30, 40, 50]:
-            for i in [25, 375, 50, 625, 75]:
-            # for i in ['001', '002', '003', '004', '005']:
+            # for i in [25, 375, 50, 625, 75]:
+            for i in ['001', '002', '003', '004', '005']:
                 # file_name = f"{molecule}_sw_{i}.xlsx"
-                file_name = f"{molecule}_temp_{i}.xlsx"
-                # file_name = f"{molecule}_wt_{i}.xlsx"
+                # file_name = f"{molecule}_temp_{i}.xlsx"
+                file_name = f"{molecule}_wt_{i}.xlsx"
 
                 file_path = os.path.join(path, file_name)
                 try:
@@ -250,19 +250,27 @@ def create_combined_plots(selected_times, filename_suffix):
 
         # Set legend position based on molecule type
         legend_position = 'upper left' if molecule == 'H2SAQ' else 'upper right'
-        plt.legend(handles=legend_elements, title='Mineral and Time', loc=legend_position, fontsize=16, title_fontsize=16)
+        plt.legend(handles=legend_elements, title='Mineral and Time', loc=legend_position, fontsize=20, title_fontsize=20)
 
         # Adjust x-ticks to be directly below their corresponding boxes
         new_xticks = [positions[i] for i in range(len(unique_x_vals))]
-        plt.xticks(ticks=new_xticks, labels=[f"{x:.3f}" for x in unique_x_vals], rotation=45, fontsize=16)
-        plt.yticks(fontsize=16)
+        plt.xticks(ticks=new_xticks, labels=[f"{x:.3f}" for x in unique_x_vals], rotation=45, fontsize=22)
+        plt.yticks(fontsize=22)
 
         # Set x and y labels based on the molecule type
-        plt.xlabel('Fe(II)/Fe(tot) Mole Ratio', fontsize=18)
+        plt.xlabel('Fe(II)/Fe(tot) Mole Ratio', fontsize=24)
         if molecule == 'H2':
-            plt.ylabel('H$_2$(g) Fractional Loss', fontsize=18)
+            plt.ylabel('H$_2$(g) Fractional Loss', fontsize=24)
+            if filename_suffix == '1Y_3Y':
+                plt.text(0.02, 0.93, 'a)', transform=plt.gcf().transFigure, fontsize=25, fontweight='bold', va='top')
+            else:
+                plt.text(0.02, 0.93, 'b)', transform=plt.gcf().transFigure, fontsize=25, fontweight='bold', va='top')
         else:
-            plt.ylabel('H$_2$S Concentration [ppm]', fontsize=18)
+            plt.ylabel('H$_2$S Concentration [ppm]', fontsize=24)
+            if filename_suffix == '1Y_3Y':
+                plt.text(0.02, 0.93, 'a)', transform=plt.gcf().transFigure, fontsize=25, fontweight='bold', va='top')
+            else:
+                plt.text(0.02, 0.93, 'b)', transform=plt.gcf().transFigure, fontsize=25, fontweight='bold', va='top')
 
         plt.tight_layout()
         plt.savefig(f'{molecule}_{filename_suffix}.png')

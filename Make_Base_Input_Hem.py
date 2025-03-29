@@ -16,7 +16,6 @@ array2 = df['Fe_Ratio'] * 100
 array1 = array1.astype(int)
 array2 = array2.astype(int)
 
-
 # Function to read specified cells from an Excel file
 def read_excel_cells(filename):
     # Load the Excel workbook
@@ -27,7 +26,6 @@ def read_excel_cells(filename):
     cell_values = [sheet[f'O{i}'].value for i in range(4, 10)]
 
     return cell_values
-
 
 # Array to store the results
 vol_perc = []
@@ -63,7 +61,6 @@ Log_SA = np.array(df['SA'])
 Logk_Pyr = np.array(df['Logk_Pyr'])
 Logk_Hem = np.array(df['Logk_Hem'])
 Logk_Goe = np.array(df['Logk_Goe'])
-
 
 # ===========================
 # Writing to the input files
