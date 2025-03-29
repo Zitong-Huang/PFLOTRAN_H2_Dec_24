@@ -1,0 +1,1 @@
+The modelling results are documented in: Huang, Z. (2025). Data for Hydrogeochemical Modeling of Hydrogen Storage in Depleted Gas Reservoirs: Insights from Local and Global Sensitivity Analysis [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15103957
