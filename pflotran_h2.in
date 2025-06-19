@@ -362,7 +362,7 @@ FLOW_CONDITION gas_injection
   RATE LIST
     TIME_UNITS year
     DATA_UNITS kg/year kg/year MW
-    0.d0 3991484.83235764 7.50d8 0.d0                   
+    0.d0 3991484.83235764 7.40d8 0.d0                   
     2.5d-1 0.d0 0.d0 0.d0
   / 
 END
